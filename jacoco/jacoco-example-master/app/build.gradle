@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode project.ext.versionCode
+        versionName project.ext.versionName
+
+        testHandleProfiling true
+        testFunctionalTest true
+
+    }
+
+    buildTypes {
+
+        debug{
+            minifyEnabled false
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled false
+
+        }
+    }
+}
+
+dependencies {
+    compile project(':module-core')
+    compile project(':module-01')
+    compile project(':module-02')
+
+    testCompile project(':test-helper')
+}
